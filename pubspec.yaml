@@ -1,0 +1,12 @@
+name: dart_cbuild
+description: Build system for seamless Dart/C interop
+version: 1.0.0
+
+environment:
+  sdk: '>=2.12.0 <3.0.0'
+
+dev_dependencies:
+  pedantic: ^1.10.0
+dependencies: 
+  ffi: ^1.1.2
+  meta: ^1.7.0

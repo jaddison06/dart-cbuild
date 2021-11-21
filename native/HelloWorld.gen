@@ -1,0 +1,41 @@
+// This is where the fun starts! A .gen file declares everything we want to export from a C library.
+// It must have the same name as the C file - this is the declaration for HelloWorld.c, so it must be called HelloWorld.gen, and
+// sit in the same directory.
+
+// An enum - we declare it here so it's guaranteed to be the same in both C and Dart.
+enum Hello {
+    World
+    Dart
+}
+
+// Our basic functions.
+
+void HelloWorld()
+void HelloEnums(Hello hello)
+
+// Here's where the magic happens. This declaration turns our HelloWorldStruct into a Dart HelloWorldClass!
+class HelloWorldClass {
+    // Annotations - there are loads! They look like this: @AnnotationName(arg1, arg2, arg3). Even if they have no arguments,
+    // they still need to end with parentheses. Let's have a look at what some of them mean.
+
+    // This function is the initializer - it'll be magicked into the Dart constructor. Use char* for strings.
+    @Initializer()
+    void* HWStructInit(char* message, int times)
+
+    // This function invalidates the reference to the HelloWorldStruct. Usually this happens when you free memory, but you can
+    // use the annotation for anything.
+    @Invalidates()
+    // We called it HWStructDestroy in C, but as it's a class method let's go with the shorter name of Destroy.
+    @Show(Destroy)
+    void HWStructDestroy()
+
+    // This method will be exposed as a Dart getter. Getters can't have any parameters.
+    @Getter(times)
+    int HWStructGetTimes()
+
+    @Show(Print)
+    void HWStructPrint()
+
+    @Show(PrintN)
+    void HWStructPrintN(int n)
+}

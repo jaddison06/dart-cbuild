@@ -6,6 +6,7 @@ def codegen() -> str:
         ".dart_tool",
         ".vscode",
         "build",
+        "codegen",
         get_config(ConfigField.dart_output_path),
         get_config(ConfigField.c_output_path),
         "Makefile",

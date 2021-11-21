@@ -50,6 +50,17 @@ dev_dependencies:
 
   // Rebuild makefile
   Process.runSync('make', ['codegen']);
+  
+  // Add gitignore
+  File('.gitignore').writeAsStringSync(
+'''# Files and directories created by pub.
+.dart_tool/
+.packages
+
+# Conventional directory for build output.
+build/
+'''
+  )
 
   exit(0);
 }

@@ -4,8 +4,7 @@ import 'dart:io';
 
 void main(List<String> arguments) {
   print('Enter project name');
-  // apparently when you run a standalone Dart file null safety gets disabled. Oh well
-  final name = stdin.readLineSync()
+  final name = stdin.readLineSync()!
     ..replaceAll('-', '_')
     ..replaceAll(' ', '_');
 
@@ -50,17 +49,6 @@ dev_dependencies:
 
   // Rebuild makefile
   Process.runSync('make', ['codegen']);
-  
-  // Add gitignore
-  File('.gitignore').writeAsStringSync(
-'''# Files and directories created by pub.
-.dart_tool/
-.packages
-
-# Conventional directory for build output.
-build/
-'''
-  )
 
   exit(0);
 }

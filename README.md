@@ -62,7 +62,9 @@ Supported annotations for use in .gen files.
 None
 
 ## On a class
-None
+|Annotation|argc|Meaning|
+|-|-|-|
+@Prefix|1|C on this class all start with a certain prefix. You **should** still write the method's full name in your .gen file, but the corresponding Dart method will automatically have the prefix removed.
 
 ## On a class method
 |Annotation|argc|Meaning|
